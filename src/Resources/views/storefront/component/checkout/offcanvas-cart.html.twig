@@ -1,0 +1,38 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-cart.html.twig' %}
+
+{% block component_offcanvas_cart_items %}
+	{% set minValueForFreeShipping = config('AptexFreeShippingProgress.config.minValueForFreeShipping') %}
+
+	{% if isCartNotEmpty %}
+		{% set progress = page.cart.price.positionPrice / minValueForFreeShipping * 100 %}
+		{% set amountRemainingToFreeShipping = minValueForFreeShipping - page.cart.price.positionPrice %}
+
+		{% if progress > 100 %}
+			{% set progress = 100 %}
+		{% endif %}
+		<div class="apx-cart-free-shipping-progress{%if progress >= 100 %} apx-cart-free-shipping-progress--success{% endif %} my-3">
+			{% if progress >= 100 %}
+				<div class="d-flex align-items-center gap-1">
+					{% sw_icon 'checkmark-circle' style { 'size': 'sm' } %}
+					<span class="apx-cart-free-shipping-progress__text">
+						{{ 'aptex_free_shipping_progress.freeShipping' | trans }}
+					</span>
+				</div>
+			{% else %}
+				<div class="d-flex align-items-center gap-1">
+					{% sw_icon 'truck' style {
+                        'size': 'sm'
+                    } %}
+					<span class="apx-cart-free-shipping-progress__text">
+						{{ 'aptex_free_shipping_progress.remaining' | trans({'%amount%': amountRemainingToFreeShipping | currency }) }}
+					</span>
+				</div>
+			{% endif %}
+			<div class="progress">
+				<div class="progress-bar{% if progress >= 100 %} bg-success{% endif %}" style="width: {{ progress }}%"></div>
+			</div>
+		</div>
+	{% endif %}
+
+	{{ parent() }}
+{% endblock %}

@@ -1,0 +1,15 @@
+.apx-cart-free-shipping-progress {
+    padding: 1rem 0.75rem;
+    border-radius: 8px;
+    background: $card-bg;
+    font-size: 0.875rem;
+
+    .progress {
+        border-radius: 8px;
+        margin-top: 0.5rem;
+    }
+
+    .icon > svg {
+        top: 0;
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "name": "aptex/free-shipping-progress",
+    "description": "Add a progress bar to the cart to show the customer how much more they need to spend to qualify for free shipping.",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": ">=6.5.0"
+    },
+    "authors": [
+        {
+          "name": "Aptex UG",
+          "email": "consulting@aptex.de",
+          "homepage": "https://aptex.de",
+          "role": "Owner"
+        }
+      ],
+    "extra": {
+        "shopware-plugin-class": "AptexFreeShippingProgress\\AptexFreeShippingProgress",
+        "label": {
+            "de-DE": "Fortschritssbalken für kostenlosen Versand",
+            "en-GB": "Progressbar for free shipping"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "AptexFreeShippingProgress\\": "src/"
+        }
+    }
+}
