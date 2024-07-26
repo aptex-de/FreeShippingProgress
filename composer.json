@@ -1,6 +1,6 @@
 {
     "name": "aptex/free-shipping-progress",
-    "description": "Add a progress bar to the cart to show the customer how much more they need to spend to qualify for free shipping.",
+    "description": "Add a progress bar to the offcanvas-cart to show the customer how much more they need to spend to qualify for free shipping.",
     "type": "shopware-platform-plugin",
     "version": "1.0.0",
     "license": "MIT",

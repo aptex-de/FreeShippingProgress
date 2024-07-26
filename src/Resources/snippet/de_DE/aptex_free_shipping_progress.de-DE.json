@@ -1,6 +1,6 @@
 {
   "aptex_free_shipping_progress": {
     "freeShipping": "Ihre Bestellung ist Versandkostenfrei!",
-    "remaining": "Noch %amount% um kostenlosen Versand zu erhalten"
+    "remaining": "Noch %amount% bis zum kostenlosen Versand"
   }
 }
