@@ -4,10 +4,20 @@
 	{% set minValueForFreeShipping = config('AptexFreeShippingProgress.config.minValueForFreeShipping') %}
 
 	{% if isCartNotEmpty %}
-		{% set progress = page.cart.price.positionPrice / minValueForFreeShipping * 100 %}
 		{% set amountRemainingToFreeShipping = minValueForFreeShipping - page.cart.price.positionPrice %}
+		
+		{% set allProductsHaveFreeShipping = true %}
+		{% for lineItem in page.cart.lineItems %}
+        	{% if not lineItem.deliveryInformation.freeDelivery %}
+				{% set allProductsHaveFreeShipping = false %}
+			{% else %}
+				{% set amountRemainingToFreeShipping = amountRemainingToFreeShipping + lineItem.price.totalPrice %}
+			{% endif %}
+		{% endfor %}
 
-		{% if progress > 100 %}
+		{% set progress = (minValueForFreeShipping - amountRemainingToFreeShipping) / minValueForFreeShipping * 100 %}
+
+		{% if progress > 100 || allProductsHaveFreeShipping %}
 			{% set progress = 100 %}
 		{% endif %}
 		<div class="apx-cart-free-shipping-progress{%if progress >= 100 %} apx-cart-free-shipping-progress--success{% endif %} my-3">
