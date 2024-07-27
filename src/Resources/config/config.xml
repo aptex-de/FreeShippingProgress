@@ -8,7 +8,8 @@
 
         <input-field type="float">
             <name>minValueForFreeShipping</name>
-            <label>Versandkostenfrei ab (€)</label>
+            <label>Free shipping from<label>
+            <label lang="de-DE">Versandkostenfrei ab</label>
             <defaultValue>100</defaultValue>
         </input-field>
     </card>
