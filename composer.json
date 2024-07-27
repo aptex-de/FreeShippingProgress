@@ -3,7 +3,7 @@
     "description": "Add a progress bar to the offcanvas-cart to show the customer how much more they need to spend to qualify for free shipping.",
     "type": "shopware-platform-plugin",
     "version": "1.0.0",
-    "license": "MIT",
+    "license": "LGPL-3.0-or-later",
     "require": {
         "shopware/core": ">=6.5.0"
     },
