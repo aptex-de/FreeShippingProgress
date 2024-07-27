@@ -5,10 +5,10 @@
 
 	{% if isCartNotEmpty %}
 		{% set amountRemainingToFreeShipping = minValueForFreeShipping - page.cart.price.positionPrice %}
-		
+
 		{% set allProductsHaveFreeShipping = true %}
 		{% for lineItem in page.cart.lineItems %}
-        	{% if not lineItem.deliveryInformation.freeDelivery %}
+			{% if not lineItem.deliveryInformation.freeDelivery %}
 				{% set allProductsHaveFreeShipping = false %}
 			{% else %}
 				{% set amountRemainingToFreeShipping = amountRemainingToFreeShipping + lineItem.price.totalPrice %}
